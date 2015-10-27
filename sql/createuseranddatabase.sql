@@ -11,6 +11,5 @@ CREATE TABLE memorials (
     street varchar(30),
     zip int,
     city varchar(30),
-    description varchar(255),
-    imageid int
+    description varchar(255)    
 );
