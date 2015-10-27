@@ -1,0 +1,2 @@
+# exclude upload dir
+/www/upload/*
