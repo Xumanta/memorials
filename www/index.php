@@ -12,8 +12,6 @@ if (isset($_POST[""])) { // Damit nicht immer alles ausgegeben wird
             }
         } else {
             $sucht = strtolower(addslashes($_POST["Suche"]));
-            // $sqlSearch = "SELECT * FROM 'Stichwort' WHERE 'Keywords'='$sucht' INNER JOIN 'Suche' USING (StichwortID) INNER JOIN 'Guide' USING (GuideID);";
-           // $sqlSearch = "SELECT * FROM 'Stichwort' WHERE 'Keywords'='$sucht' RIGHT JOIN 'Suche' ON 'Stichwort'.'StichwortID' RIGHT JOIN 'Guide' ON 'Suche'.'GuideID';";
             $sqlSearch = "SELECT name , street , zip , description , city FROM memorials m INNER JOIN memorialkeyword mk INNER JOIN keywords k ON m.id = mk.memorialid AND mk.wordid = k.id WHERE k.word = '$sucht';";
             $tabelle = mysqli_query($db, $sqlSearch);
             while ($fetch = mysqli_fetch_array($tabelle)) {
