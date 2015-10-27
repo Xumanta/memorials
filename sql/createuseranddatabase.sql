@@ -1,7 +1,7 @@
 CREATE USER 'memorials'@'localhost';
 
 GRANT ALL ON db_memorials FOR 'memorials'@'localhost';
-
+# Down is important for the Website to Work in any way!
 CREATE DATABASE db_memorials;
 
 USE db_memorials;
