@@ -1,7 +1,8 @@
-CREATE DATABASE db_memorials;
 CREATE USER 'memorials'@'localhost';
 
 GRANT ALL ON db_memorials FOR 'memorials'@'localhost';
+
+CREATE DATABASE db_memorials;
 
 USE db_memorials;
 
