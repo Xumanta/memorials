@@ -1,6 +1,8 @@
 CREATE USER 'memorials'@'localhost';
 
 GRANT ALL ON db_memorials FOR 'memorials'@'localhost';
+
+DROP DATABASE IF EXIST db_memorials;
 # Down is important for the Website to Work in any way!
 CREATE DATABASE db_memorials;
 
@@ -23,7 +25,7 @@ CREATE TABLE pictures (
 
 CREATE TABLE keywords (
 	id int AUTO_INCREMENT PRIMARY KEY,
-	word varchar(255) NOT NULL,
+	word varchar(255) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE memorialspictures (
