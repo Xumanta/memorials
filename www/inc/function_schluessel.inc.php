@@ -1,5 +1,5 @@
 <?php
-// Einseitige Verschlüsselung der Login-Daten
+// Einseitige VerschlÃ¼sselung der Login-Daten
 function schluessel($input) {
 	
 	$output1 = hash("haval256,5",$input);

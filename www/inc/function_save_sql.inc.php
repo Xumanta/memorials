@@ -1,15 +1,15 @@
 <?php
-	// Sicherungsmuster für SQL eingaben als Funktion
+	// Sicherungsmuster fÃ¼r SQL eingaben als Funktion
 	function save_sql($input) {
 	
 		$suchmuster = array();
-		$suchmuster[0] = '/Ü/';
-		$suchmuster[1] = '/ü/';
-		$suchmuster[2] = '/Ä/';
-		$suchmuster[3] = '/ä/';
-		$suchmuster[4] = '/Ö/';
-		$suchmuster[5] = '/ö/';
-		$suchmuster[6] = '/ß/';
+		$suchmuster[0] = '/Ãœ/';
+		$suchmuster[1] = '/Ã¼/';
+		$suchmuster[2] = '/Ã„/';
+		$suchmuster[3] = '/Ã¤/';
+		$suchmuster[4] = '/Ã–/';
+		$suchmuster[5] = '/Ã¶/';
+		$suchmuster[6] = '/ÃŸ/';
 
 		$ersetzungen = array();
 		$ersetzungen[0] = '&Uuml;';
