@@ -1,0 +1,3 @@
+### Hinweis ###
+* Einfach im Upload ordner hinterlegen.
+* Dateinamen stellen SHA-1 Hash der Datei dar.
