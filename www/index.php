@@ -1,14 +1,14 @@
 <?php
 include "inc/db_connect.php";
-if (isset($_POST[""])) { // Damit nicht immer alles ausgegeben wird
+if (isset($_POST["Suche"])) { // Damit nicht immer alles ausgegeben wird
             $sqlAus = "SELECT * FROM `memorials`"; // SELECT Befehl
 			$teildb = mysqli_query($db, $sqlAus);
 			while ($fetched = mysqli_fetch_array($teildb))
             {
                 $content .= "<div class=\"attraktion\">
                         <center><h4>".$fetched['name']."</h4></center>
-                        <p><b>Adresse:</b><br> ".$fetched['street']."<br>".$fetched['zip']." ".$fetched['city']."</p><br>
-                        <p><b>Kurzbeschreibung:</b><br>".$fetched['description']."</p>
+                        <p><b>Adresse:</b><br /> ".$fetched['street']."<br />".$fetched['zip']." ".$fetched['city']."</p><br />
+                        <p><b>Kurzbeschreibung:</b><br />".$fetched['description']."</p>
                     </div>";
             }
         } else {
@@ -18,8 +18,8 @@ if (isset($_POST[""])) { // Damit nicht immer alles ausgegeben wird
             while ($fetch = mysqli_fetch_array($tabelle)) {
                 $content .= "<div class=\"attraktion\">
                         <center><h4>".$fetched['name']."</h4></center>
-                        <p><b>Adresse:</b><br> ".$fetched['street']."<br>".$fetched['zip']." ".$fetched['city']."</p><br>
-                        <p><b>Kurzbeschreibung:</b><br>".$fetched['description']."</p>
+                        <p><b>Adresse:</b><br /> ".$fetched['street']."<br />".$fetched['zip']." ".$fetched['city']."</p><br />
+                        <p><b>Kurzbeschreibung:</b><br />".$fetched['description']."</p>
                     </div>";
             }
         }
@@ -37,14 +37,15 @@ if (isset($_POST[""])) { // Damit nicht immer alles ausgegeben wird
             <div class="logo">
                 <img src="">
             </div>
-            
+            <!--
             <a href="index_en.php"><img class="language" src="images/flag_en.png"></a>
             <a href="#"><img class="language" src="images/flag_ger.png"></a>
-
+			-->
             <div class="search">
                 <form action="index.php" method="POST">
-                    <input type="image" src="images/search_icon.svg" name="Suche_start" value="">
-                    <input type="text" name="Suche" placeholder="Suche nach Orten...">
+                    <!-- <input type="image" src="images/search_icon.svg" name="Suche_start" value=""> -->
+                    <input type="text" name="Suche" placeholder="Suche nach Orten..." />
+                    <input type="submit" name="Suchen" />
                 </form>
             </div>
         </div>
