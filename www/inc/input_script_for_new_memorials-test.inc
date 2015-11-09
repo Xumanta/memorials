@@ -8,7 +8,7 @@ if (isset($_POST["name"]) & isset($_POST["street"]) & isset($_POST["zip"]) & iss
 	$zip = addslashes($_POST["zip"]);
 	$city = addslashes($_POST["city"]);
 	$description = addslashes($_POST["description"]);
-	$keywords = addslashes($_POST["keywords"]);
+	$keywords = strtolower(addslashes($_POST["keywords"]));
 	// Creating 1. SQL Statement(s)
 	$sql_memInput = "INSERT INTO memorials (name, street, zip, city, description) VALUES
 	('".$name."', '".$street."', '".$zip."', '".$city."', '".$description."');";
