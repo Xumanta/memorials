@@ -1,5 +1,5 @@
 <?php
-class Config{
+class _EXAMPLE_Config{
     const SITE_HOST = 'http://localhost/';
     const SITE_PATH = 'memorials/';
 
@@ -13,6 +13,6 @@ class Config{
     const URL_BOOTSTRAP = 'http://localhost/memorials/bootstrap/';
     const URL_JQUERY = 'http://localhost/memorials/js/jquery-1.11.3.js';
 
-    const DEBUG_ENABLE = true;
+    const DEBUG_ENABLE = false;
 }
 ?>

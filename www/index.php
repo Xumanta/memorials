@@ -1,5 +1,8 @@
 <?php
+
 include "inc/db_connect.php";
+
+
 if (isset($_POST["Suche"])) { // Damit nicht immer alles ausgegeben wird
             $sqlAus = "SELECT * FROM `memorials`"; // SELECT Befehl
 			$teildb = mysqli_query($db, $sqlAus);

@@ -1,5 +1,5 @@
 <?php
-// Cheks for using SSL
+// Checks if using SSL
 if ($require_ssl) {
 	// Redirect to SSL
 	if($_SERVER['SERVER_PORT'] != 443)

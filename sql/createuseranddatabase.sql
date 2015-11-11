@@ -43,3 +43,9 @@ CREATE TABLE memorialkeyword (
 	CONSTRAINT word4mem FOREIGN KEY (wordid) REFERENCES keywords(id) ON UPDATE CASCADE ON DELETE SET NULL,
 	CONSTRAINT mem4word FOREIGN KEY (memorialid) REFERENCES memorials(id) ON UPDATE CASCADE ON DELETE SET NULL
 ) ENGINE=InnoDB;
+
+CREATE TABLE vars (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  var_name varchar(255) NOT NULL,
+  var_value varchar(255)
+) ENGINE=InnoDB;
