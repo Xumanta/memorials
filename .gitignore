@@ -1,4 +1,4 @@
 # exclude upload dir
 /www/upload/*
-config.inc.php
+config.php
 .idea/*
