@@ -1,11 +1,11 @@
 html {
     position: relative;
     min-height: 100%;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 body {
     margin-bottom: 120px;
+    font-family: 'Oswald', sans-serif;
 }
 
 .container {
@@ -110,4 +110,8 @@ body {
 
 .memorial-col {
     margin-bottom: 20px;
+}
+
+.label-primary {
+    font-weight: lighter;
 }
