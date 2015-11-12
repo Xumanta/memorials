@@ -107,6 +107,7 @@ if (isset($_REQUEST["searchword"])) {
         $sql_GetPicsMem = mysqli_query($db, $sql_PicForMem);
 
         if (($counter % 2) == 0 ) {
+            $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
             <div class="row memorial-row" id="memorial-'.$counter.'">
             <div class="col-xs-8 col-sm-6 memorial-col">
@@ -155,6 +156,7 @@ if (isset($_REQUEST["searchword"])) {
                 ';
             }
 
+            $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
             <div class="col-xs-8 col-sm-6 memorial-col">
             <h2>'.$fetchMem["name"].'</h2>
