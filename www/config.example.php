@@ -10,9 +10,15 @@ class _EXAMPLE_Config{
     const DB_USER = 'USER';
     const DB_PASS = 'PASSWORD';
 
-    const URL_BOOTSTRAP = 'http://localhost/memorials/bootstrap/';
-    const URL_JQUERY = 'http://localhost/memorials/js/jquery-1.11.3.js';
-
     const DEBUG_ENABLED = false;
+}
+
+/**
+ *  DO NOT MODIFY
+ */
+if(Config::DEBUG_ENABLED){
+    error_reporting(E_ALL);
+} else {
+    error_reporting(0);
 }
 ?>

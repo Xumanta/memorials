@@ -12,4 +12,14 @@ class Config{
 
     const DEBUG_ENABLED = true;
 }
+
+/**
+ *  DO NOT MODIFY
+ */
+if(Config::DEBUG_ENABLED){
+    error_reporting(E_ALL);
+} else {
+    error_reporting(0);
+}
+
 ?>
