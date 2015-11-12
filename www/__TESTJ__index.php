@@ -88,6 +88,7 @@ if (isset($_REQUEST["searchword"])) {
             </div>
             ';
         }
+        $counter++;
     }
 
 } else {
@@ -177,6 +178,7 @@ if (isset($_REQUEST["searchword"])) {
             </div>
             ';
         }
+        $counter++;
     }
 }
 ?>
