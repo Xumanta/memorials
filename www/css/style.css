@@ -1,0 +1,113 @@
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin-bottom: 120px;
+}
+
+.container {
+    width: 960px;
+}
+
+.memorials-masthead {
+    background-color: #4082ed;
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.memorials-header{
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 60px;
+}
+
+.memorials-nav {
+    height: 50px;
+}
+
+.memorials-nav-item {
+    position: relative;
+    display:inline-block;
+    padding:10px;
+    font-weight: 300;
+    color: #cdddeb;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.memorials-nav-item .active {
+    color: #fff;
+}
+
+.memorials-nav-item:hover,
+.memorials-nav-item:focus {
+    text-decoration: none;
+    color:white;
+}
+
+.memorials-title {
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-top: 60px;
+    font-weight: normal;
+}
+
+.memorials-description {
+    font-size: 20px;
+    color: #999;
+}
+
+.memorials-main {
+
+}
+
+.memorials-sidebar {
+    border-left: 1px solid #e5e5e5;
+}
+
+.memorials-sidebar-item {
+    padding-bottom: 8px;
+    padding-left: 10px;
+}
+
+.memorials-sidebar-item a {
+    font-size: 12px;
+    color: #999;
+}
+
+.memorials-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    padding: 40px 0 ;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+
+.memorials-image {
+    padding: 10% 0;
+    max-width:100%;
+    max-height:100%;
+}
+
+.memorial-row {
+    border-bottom: 1px dashed #e5e5e5;
+    margin-bottom: 16px;
+}
+
+.memorial-row-last {
+    border-bottom: none;
+}
+
+.memorial-col {
+    margin-bottom: 20px;
+}

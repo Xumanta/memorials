@@ -1,0 +1,7 @@
+### Navigations Leiste ###
+&Uuml;ber NAV_LINK_ABOUT
+Start NAV_LINK_START
+Admin NAV_LINK_ADMIN
+
+### Titel ###
+Startseite PAGE_TITLE_START

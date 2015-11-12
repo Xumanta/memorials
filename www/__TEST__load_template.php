@@ -8,4 +8,4 @@
 
 require_once 'inc/func_get_template_html.inc.php';
 
-echo get_template_html('TEST_0');
+echo get_template_html('INDEX_BASE');

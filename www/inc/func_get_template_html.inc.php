@@ -44,7 +44,7 @@ function get_template_html($tpl_name){
         return $tpl;
 
     } catch (Exception $e){
-        if(Config::DEBUG_ENABLE){
+        if(Config::DEBUG_ENABLED){
             die('Could not load template: ' . $e->getMessage());
         }
 
