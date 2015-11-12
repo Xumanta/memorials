@@ -4,7 +4,7 @@ include "inc/db_connect.php";
 
 
 if (isset($_POST["Suche"])) { // Damit nicht immer alles ausgegeben wird
-            $sqlAus = "SELECT * FROM `memorials`"; // SELECT Befehl
+            $sqlAus = "SELECT * FROM `memorials`;"; // SELECT Befehl
 			$teildb = mysqli_query($db, $sqlAus);
 			while ($fetched = mysqli_fetch_array($teildb))
             {
@@ -30,7 +30,7 @@ if (isset($_POST["Suche"])) { // Damit nicht immer alles ausgegeben wird
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Denkmäler</title>
+    <title>Denkm&auml;ler</title>
     <link rel="stylesheet" href="">
 </head>
 <body>

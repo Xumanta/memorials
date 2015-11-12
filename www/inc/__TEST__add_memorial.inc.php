@@ -12,7 +12,7 @@ if (isset($_POST["name"]) & isset($_POST["street"]) & isset($_POST["zip"]) & iss
 	// Creating 1. SQL Statement(s)
 	$sql_memInput = "INSERT INTO memorials (name, street, zip, city, description) VALUES
 	('".$name."', '".$street."', '".$zip."', '".$city."', '".$description."');";
-	$sql_getMemId = "SELECT id FROM memorials WHERE name = '".$name."'' and zip = '".$zip."';";
+	$sql_getMemId = "SELECT id FROM memorials WHERE name = '".$name."' and zip = '".$zip."';";
 	// Execute SQL
 	$sql_memRet = mysqli_query($db, $sql_memInput.$sql_getMemId);
 
