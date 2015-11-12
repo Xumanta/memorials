@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{VAR:PAGE_START_TITLE}}</title>
+    <title>Startseite</title>
 
-    <!-- Bootstrap MaxCDN -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ekko-lightbox.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/oswald.css" rel="stylesheet">
-    <link href="css/ekko-lightbox.min.css">
+
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
         <div class="row">
             <!-- Content Begin -->
             <div class="col-md-8 memorials-main">
-                <div class="row memorial-row">
+                <div class="row memorial-row" id="memorial-1">
 
                     <div class="col-xs-8 col-sm-6 memorial-col">
                         <h2>Bücherverbrennung</h2>
@@ -78,12 +78,13 @@
 
                 </div>
 
-                <div class="row memorial-row">
+                <div class="row memorial-row" id="memorial-2">
 
                     <div class="col-xs-8 col-sm-6 memorials-image-col">
-                        <a href="upload/617CB7066F4DA706B6C7D0BC3DFD93451E12AC4C.jpg" data-toggle="lightbox" data-title="Hoppeditz Denkmal">
+                        <a data-toggle="lightbox" href="upload/617CB7066F4DA706B6C7D0BC3DFD93451E12AC4C.jpg" data-gallery="memorial-gallery-2" data-title="Image 1" >
                             <img class="img-circle memorials-image" src="upload/thumbs/thumb-617CB7066F4DA706B6C7D0BC3DFD93451E12AC4C.jpg" alt="...">
                         </a>
+                        <div data-toggle="lightbox" data-gallery="memorial-gallery-2" data-remote="upload/C3203F4049336216AB6E8C3764BFD81855BC461A.jpg" data-title="Image 2"></div>
                     </div>
 
                     <div class="col-xs-8 col-sm-6 memorial-col">
@@ -105,7 +106,7 @@
 
                 </div>
 
-                <div class="row memorial-row memorial-row-last">
+                <div class="row memorial-row memorial-row-last" id="memorial-4">
 
                     <div class="col-xs-8 col-sm-6 memorial-col">
                         <h2>Glockenspiel</h2>
@@ -210,8 +211,8 @@
     <!-- Bootstrap and JQuery JavaScript
     ======================================================================================-->
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/ekko-lightbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox();
