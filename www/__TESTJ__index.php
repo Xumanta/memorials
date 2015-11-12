@@ -181,6 +181,13 @@ if (isset($_REQUEST["searchword"])) {
         $counter++;
     }
 }
+
+$sql_AllKeywords = "SELECT * FROM keywords;";
+$sql_GetKeys = mysqli_query($db, $sql_AllKeywords);
+while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
+    $printing_keywords .= '<a href="index.php?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -258,54 +265,11 @@ if (isset($_REQUEST["searchword"])) {
                 </ol>
                 <h2>Alle Stichworte</h2>
                 <div>
-                    <a href="#"><span class="label label-primary label-sidebar">Ehra</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Ball</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Kind</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">KZ</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Auschwitz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1917</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Hafen</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">getötet</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Erbe</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">lehre</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Jude</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Musiker</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">zerstört</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">wiedererrichtet</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1901</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1936</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1940</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Entfernt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">2012</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Nazis</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Aktion</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Rheinland</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Franz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Jürgens</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Richtstätte</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">MSommer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Moritz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Sommer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">erhängt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Oberbilker</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Markt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Gedenktafel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">KZ</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Außenlager</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Sachsenhausen</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Gedenktafel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Bücherverbrennung</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1933</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heinrich</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heine</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Hoppeditz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">kritisch</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">heiter</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Rheinischer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Geist</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Osteuropa</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Glockenspiel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heimatvertriebene</span></a>
+                    <?php
+
+                    print $printing_keywords;
+
+                    ?>
                 </div>
             </div>
             <!-- Sidebar End -->
