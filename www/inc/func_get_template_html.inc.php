@@ -31,6 +31,7 @@ function get_template_html($tpl_name){
 
                 switch ($key_val[0]) {
                     case 'TPL':
+                        if($key_val[1] == $tpl_name) throw new Exception('Do you want to see the world burn?');
                         $tpl = str_replace($val, get_template_html($key_val[1]), $tpl);
                         break;
 
