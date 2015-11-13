@@ -1,22 +1,24 @@
 <?php
-# INCLUDE FILES ARE MISSING FOR NOW!!!
+
+require_once 'config.php';
+require_once 'inc/db_connect.inc.php';
 
 if (isset($_REQUEST["searchword"])) {
     // Searching
     $search_word = strtolower(addslashes($_REQUEST["searchword"]));
     $sql_AllMemorials = "SELECT memorials.id, name, street, zip, description, city FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE keywords.word = '.$search_word.';";
-    $sql_GetAllMem = mysqli_query($db, $sql_AllMemorials);
+    $sql_GetAllMem = mysqli_query($db_connection, $sql_AllMemorials);
     $counter = 0;
     while ($fetchMem = mysqli_fetch_array($sql_GetAllMem)) {
 
         $sql_KeyForMem = "SELECT word FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE memorials.id = ".$fetchMem["id"].";";
-        $sql_GetKeysMem = mysqli_query($db, $sql_KeyForMem);
+        $sql_GetKeysMem = mysqli_query($db_connection, $sql_KeyForMem);
 
         $sql_PicForMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"]." LIMIT 1;";
-        $sql_GetPicsMem = mysqli_query($db, $sql_PicForMem);
+        $sql_GetPicsMem = mysqli_query($db_connection, $sql_PicForMem);
 
         $sql_AllPicOfMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"].";";
-        $sql_GetAllPicOfMem = mysqli_query($db, $sql_AllPicOfMem);
+        $sql_GetAllPicOfMem = mysqli_query($db_connection, $sql_AllPicOfMem);
         $picount = 0;
         while ($temppicfetch = mysqli_fetch_array($sql_GetAllPicOfMem)) {
             $pictures[$picount] = $temppicfetch["picsum"];
@@ -105,18 +107,18 @@ if (isset($_REQUEST["searchword"])) {
 
     // Not Searching
     $sql_AllMemorials = "SELECT * FROM `memorials`;";
-    $sql_GetAllMem = mysqli_query($db, $sql_AllMemorials);
+    $sql_GetAllMem = mysqli_query($db_connection, $sql_AllMemorials);
     $counter = 0;
     while ($fetchMem = mysqli_fetch_array($sql_GetAllMem)) {
 
         $sql_KeyForMem = "SELECT word FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE memorials.id = ".$fetchMem["id"].";";
-        $sql_GetKeysMem = mysqli_query($db, $sql_KeyForMem);
+        $sql_GetKeysMem = mysqli_query($db_connection, $sql_KeyForMem);
 
         $sql_PicForMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"]." LIMIT 1;";
-        $sql_GetPicsMem = mysqli_query($db, $sql_PicForMem);
+        $sql_GetPicsMem = mysqli_query($db_connection, $sql_PicForMem);
 
         $sql_AllPicOfMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"].";";
-        $sql_GetAllPicOfMem = mysqli_query($db, $sql_AllPicOfMem);
+        $sql_GetAllPicOfMem = mysqli_query($db_connection, $sql_AllPicOfMem);
         $picount = 0;
         while ($temppicfetch = mysqli_fetch_array($sql_GetAllPicOfMem)) {
             $pictures[$picount] = $temppicfetch["picsum"];
@@ -204,7 +206,7 @@ if (isset($_REQUEST["searchword"])) {
 
 // For Printing all Keywords
 $sql_AllKeywords = "SELECT * FROM keywords;";
-$sql_GetKeys = mysqli_query($db, $sql_AllKeywords);
+$sql_GetKeys = mysqli_query($db_connection, $sql_AllKeywords);
 while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
     $printing_keywords .= '<a href="index.php?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a>';
 }
