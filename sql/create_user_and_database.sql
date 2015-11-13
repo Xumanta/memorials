@@ -1,8 +1,6 @@
 CREATE USER 'memorials'@'localhost';
+GRANT ALL ON db_memorials TO 'memorials'@'localhost';
 
-GRANT ALL ON db_memorials FOR 'memorials'@'localhost';
-
-DROP DATABASE IF EXIST db_memorials;
 # Down is important for the Website to Work in any way!
 CREATE DATABASE db_memorials;
 
@@ -14,7 +12,7 @@ CREATE TABLE memorials (
     street varchar(30),
     zip int,
     city varchar(30),
-    description varchar(255)    
+    description varchar(500)
 ) ENGINE=InnoDB;
 
 CREATE TABLE pictures (

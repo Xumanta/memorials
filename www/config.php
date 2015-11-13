@@ -10,7 +10,7 @@ class Config{
     const DB_USER = 'root';
     const DB_PASS = '';
 
-    const DEBUG_ENABLED = true;
+    const DEBUG_ENABLED = false;
 }
 
 /**
