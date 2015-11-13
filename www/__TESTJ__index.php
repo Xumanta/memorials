@@ -184,10 +184,16 @@ if (isset($_REQUEST["searchword"])) {
     }
 }
 
+// For Printing all Keywords
 $sql_AllKeywords = "SELECT * FROM keywords;";
 $sql_GetKeys = mysqli_query($db, $sql_AllKeywords);
 while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
     $printing_keywords .= '<a href="index.php?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a>';
+}
+
+// For Printing the shown Sidebar data
+for ($i = 0; $i < count($sidebar); $i++) {
+    $printing_lister .= "<li class=\"memorials-sidebar-item\"><a href=\"#".$i."\">".$sidebar[$i]."</a></li>";
 }
 
 ?>
