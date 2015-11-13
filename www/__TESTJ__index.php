@@ -145,8 +145,7 @@ if (isset($_REQUEST["searchword"])) {
             ';
             while ($fetchKey = mysqli_fetch_array($sql_GetKeysMem)) {
                 $printing_memorials .= '
-                <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>
-                ';
+                <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>';
             }
             while ($fetchPic = mysqli_fetch_array($sql_GetPicsMem)) {
                 $printing_memorials .= '
@@ -249,7 +248,7 @@ for ($ii = 0; $ii < count($pictures); $ii++) {
     <div class="memorials-masthead">
         <div class="container">
             <nav class="memorials-nav">
-                <a class="memorials-nav-item active" href="#">Home</a>
+                <a class="memorials-nav-item active" href="<?= basename(__FILE__); ?>">Home</a>
                 <a class="memorials-nav-item" href="#">&Uuml;ber</a>
                 <a class="memorials-nav-item" href="#">Anmelden</a>
 
