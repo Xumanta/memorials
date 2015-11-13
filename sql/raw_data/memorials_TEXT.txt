@@ -1,0 +1,50 @@
+#name
+Glockenspiel
+Hoppeditz Denkmal
+B&uuml;cherverbrennung
+KZ-Gedenktafel
+Moritz Sommer Gedenktafel
+Richtst&auml;tte Aktion Rheinland
+Felix Mendelssohn-Bartholdy Skulptur
+Ehra
+
+#street
+Bismarckstraße 90
+Marktplatz 5-6
+Ehrenhof 1
+Am Stoffeler Kapellenweg 188
+Bogenstraße 35
+Anton-Betz-Straße 3
+Heinrich-Heine-Allee
+Akademiestraße 1
+
+#zip
+40210
+40213
+40479
+40225
+40227
+40223
+40213
+40213
+
+#city
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+D&uuml;sseldorf
+
+#description
+Denkmal f&uuml;r Heimatvertriebene aus Osteuropa, dargestellt sind die verschiedenen Wappen, Glockenspiel t&auml;glich um 12 Uhr.
+Denkmal f&uuml;r Verk&ouml;rperung des heiter-kritischen "Rheinischen Geistes", dargestellt ist der Hoppeditz auf K&ouml;pfen, H&uuml;ten und Gl&ouml;ckchen.
+Denkmal f&uuml;r die B&uuml;cherverbrennung der Nationalsozialisten 1933, dargestellt ist auf einer Gedenktafel das Zitat "Dort wo man B&uuml;cher verbrennt, verbrennt man auch am Ende Menschen" von Heinrich Heine.
+Von Oktober 1942 bis Februar 1943 befand sich hier ein Außenlager des KZ Sachsenhausen von den 500 H&auml;ftlingen starben mindestens 111.
+Der 72-J&auml;hrige j&uuml;dische Mitb&uuml;rger Moritz Sommer wurde am 15.April 1945 auf dem Oberbilker Markt erh&auml;ngt. Er stand unter dem Verdacht, Deserteuren geholfen zu haben.
+Am 16.April 1945 fielen auf diesem Gel&auml;nde f&uuml;r die Befreiung der Stadt D&uuml;sseldorf von der nationalsozialistischen Gewaltherrschaft
+Das Felix Mendelssohn Bartholdy Denkmal wurde 1901 errichtet von D&uuml;sseldorfer B&uuml;rgern, um Felix Mendelssohn Bartholdy wegen seiner Musikverdienste zu ehren. Es wurde 1936 von Nazis vom Standort entfernt, da Felix Mendelssohn Bartholdy Jude war und 1940 wurde es ganz zerst&ouml;rt.2012 wurde es wieder errichtet.
+Das Denkmal wurde am 52. Jahrestag der Befreiung von Auschwitz, dem 27. Januar 1997, am Alten Hafen aufgestellt. Seitdem dienen die Figur und ihre Umgebung als Ort f&uuml;r Gedenkveranstaltungen zur Erinnerung an die Get&ouml;teten des Nationalsozialismus.
+

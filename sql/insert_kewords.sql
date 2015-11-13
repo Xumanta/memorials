@@ -1,7 +1,6 @@
 INSERT INTO `keywords` (`word`) VALUES
   ('Ball'),
   ('Kind'),
-  ('KZ'),
   ('Auschwitz'),
   ('1917'),
   ('Hafen'),
@@ -23,7 +22,6 @@ INSERT INTO `keywords` (`word`) VALUES
   ('Franz'),
   ('J&uuml;rgens'),
   ('Richtst&auml;tte'),
-  ('Sommer'),
   ('Moritz'),
   ('Sommer'),
   ('erh&auml;ngt'),
@@ -33,7 +31,6 @@ INSERT INTO `keywords` (`word`) VALUES
   ('KZ'),
   ('Außenlager'),
   ('Sachsenhausen'),
-  ('Gedenktafel'),
   ('B&uuml;cherverbrennung'),
   ('1933'),
   ('Heinrich'),
@@ -45,4 +42,5 @@ INSERT INTO `keywords` (`word`) VALUES
   ('Geist'),
   ('Osteuropa'),
   ('Glockenspiel'),
-  ('Heimatvertriebene');
+  ('Heimatvertriebene'),
+  ('Ehra');
