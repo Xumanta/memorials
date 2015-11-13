@@ -6,7 +6,7 @@ require_once 'inc/db_connect.inc.php';
 if (isset($_REQUEST["searchword"])) {
     // Searching
     $search_word = strtolower(addslashes($_REQUEST["searchword"]));
-    $sql_AllMemorials = "SELECT memorials.id, name, street, zip, description, city FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE keywords.word = '.$search_word.';";
+    $sql_AllMemorials = "SELECT memorials.id, name, street, zip, description, city FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE keywords.word = '".$search_word."';";
     $sql_GetAllMem = mysqli_query($db_connection, $sql_AllMemorials);
     $counter = 0;
     while ($fetchMem = mysqli_fetch_array($sql_GetAllMem)) {
@@ -101,6 +101,7 @@ if (isset($_REQUEST["searchword"])) {
             </div>
             ';
         }
+        $counter++;
     }
 
 } else {
@@ -201,6 +202,7 @@ if (isset($_REQUEST["searchword"])) {
             </div>
             ';
         }
+        $counter++;
     }
 }
 
@@ -208,12 +210,12 @@ if (isset($_REQUEST["searchword"])) {
 $sql_AllKeywords = "SELECT * FROM keywords;";
 $sql_GetKeys = mysqli_query($db_connection, $sql_AllKeywords);
 while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
-    $printing_keywords .= '<a href="index.php?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a>';
+    $printing_keywords .= '<a href="'.basename(__FILE__).'?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a> ';
 }
 
 // For Printing the shown Sidebar data
 for ($i = 0; $i < count($sidebar); $i++) {
-    $printing_lister .= "<li class=\"memorials-sidebar-item\"><a href=\"#".$i."\">".$sidebar[$i]."</a></li>";
+    $printing_lister .= "<li class=\"memorials-sidebar-item\"><a href=\"#memorial-".$i."\">".$sidebar[$i]."</a></li> ";
 }
 
 // All Images from Shown Memorials
@@ -251,7 +253,7 @@ for ($ii = 0; $ii < count($pictures); $ii++) {
                 <a class="memorials-nav-item" href="#">&Uuml;ber</a>
                 <a class="memorials-nav-item" href="#">Anmelden</a>
 
-                <form class="navbar-form navbar-right" method="post" action="__TESTJ__index.php">
+                <form class="navbar-form navbar-right" method="post" action="<?= basename(__FILE__); ?>">
 
                     <div class="input-group ">
                         <input type="text" class="form-control" id="searchword" placeholder="Suchen nach...">
