@@ -8,7 +8,7 @@ USE db_memorials;
 
 CREATE TABLE memorials (
     id int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(30),
+    name varchar(255),
     street varchar(30),
     zip int,
     city varchar(30),
