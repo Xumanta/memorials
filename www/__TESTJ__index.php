@@ -15,6 +15,15 @@ if (isset($_REQUEST["searchword"])) {
         $sql_PicForMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"]." LIMIT 1;";
         $sql_GetPicsMem = mysqli_query($db, $sql_PicForMem);
 
+        $sql_AllPicOfMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"].";";
+        $sql_GetAllPicOfMem = mysqli_query($db, $sql_AllPicOfMem);
+        $picount = 0;
+        while ($temppicfetch = mysqli_fetch_array($sql_GetAllPicOfMem)) {
+            $pictures[$picount] = $temppicfetch["picsum"];
+            $picount++;
+        }
+        unset($temppicfetch); unset($picount);
+
         if (($counter % 2) == 0 ) {
             $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
@@ -106,7 +115,17 @@ if (isset($_REQUEST["searchword"])) {
         $sql_PicForMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"]." LIMIT 1;";
         $sql_GetPicsMem = mysqli_query($db, $sql_PicForMem);
 
+        $sql_AllPicOfMem = "SELECT picsum FROM memorials INNER JOIN memorialspictures INNER JOIN pictures ON memorials.id = memorialspictures.memorialid AND memorialspictures.picid = pictures.id WHERE memorials.id = ".$fetchMem["id"].";";
+        $sql_GetAllPicOfMem = mysqli_query($db, $sql_AllPicOfMem);
+        $picount = 0;
+        while ($temppicfetch = mysqli_fetch_array($sql_GetAllPicOfMem)) {
+            $pictures[$picount] = $temppicfetch["picsum"];
+            $picount++;
+        }
+        unset($temppicfetch); unset($picount);
+
         if (($counter % 2) == 0 ) {
+            $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
             <div class="row memorial-row" id="memorial-'.$counter.'">
             <div class="col-xs-8 col-sm-6 memorial-col">
@@ -155,6 +174,7 @@ if (isset($_REQUEST["searchword"])) {
                 ';
             }
 
+            $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
             <div class="col-xs-8 col-sm-6 memorial-col">
             <h2>'.$fetchMem["name"].'</h2>
@@ -181,6 +201,24 @@ if (isset($_REQUEST["searchword"])) {
         }
     }
 }
+
+// For Printing all Keywords
+$sql_AllKeywords = "SELECT * FROM keywords;";
+$sql_GetKeys = mysqli_query($db, $sql_AllKeywords);
+while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
+    $printing_keywords .= '<a href="index.php?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a>';
+}
+
+// For Printing the shown Sidebar data
+for ($i = 0; $i < count($sidebar); $i++) {
+    $printing_lister .= "<li class=\"memorials-sidebar-item\"><a href=\"#".$i."\">".$sidebar[$i]."</a></li>";
+}
+
+// All Images from Shown Memorials
+for ($ii = 0; $ii < count($pictures); $ii++) {
+    $printing_pictures .= "<div data-toggle=\"lightbox\" data-gallery=\"image-gallery\" data-remote=\"upload/".$pictures[$ii].".jpg\" data-title=\"Image ".$ii."\"></div>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -248,84 +286,26 @@ if (isset($_REQUEST["searchword"])) {
             <div class="col-md-3 col-md-offset-1 memorials-sidebar">
                 <h2>&Uuml;bersicht</h2>
                 <ol class="list-unstyled">
-                    <li class="memorials-sidebar-item"><a href="#">Glockelspiel</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Hoppeditz</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Gedenktafel KZ-Außenlager</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Moritz Sommer Gedenktafel</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Richtstätte Aktion Rheinland</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Felix Mendelssohn-Bartholdy Skulptur</a></li>
-                    <li class="memorials-sidebar-item"><a href="#">Ehra</a></li>
+                    <?php
+                    print $printing_lister;
+                    ?>
                 </ol>
                 <h2>Alle Stichworte</h2>
                 <div>
-                    <a href="#"><span class="label label-primary label-sidebar">Ehra</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Ball</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Kind</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">KZ</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Auschwitz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1917</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Hafen</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">getötet</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Erbe</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">lehre</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Jude</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Musiker</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">zerstört</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">wiedererrichtet</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1901</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1936</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1940</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Entfernt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">2012</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Nazis</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Aktion</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Rheinland</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Franz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Jürgens</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Richtstätte</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">MSommer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Moritz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Sommer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">erhängt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Oberbilker</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Markt</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Gedenktafel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">KZ</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Außenlager</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Sachsenhausen</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Gedenktafel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Bücherverbrennung</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">1933</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heinrich</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heine</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Hoppeditz</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">kritisch</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">heiter</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Rheinischer</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Geist</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Osteuropa</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Glockenspiel</span></a>
-                    <a href="#"><span class="label label-primary label-sidebar">Heimatvertriebene</span></a>
+                    <?php
+                    print $printing_keywords;
+                    ?>
                 </div>
             </div>
             <!-- Sidebar End -->
         </div>
 
         <div id="memorial-images">
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/16FAD5148F14193239376F72ABB0AC9792BF997E.jpg" data-title="Image 1"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/617CB7066F4DA706B6C7D0BC3DFD93451E12AC4C.jpg" data-title="Image 2"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/2ADB589742150AB0016B15CB4DE27191388BD64B.jpg" data-title="Image 3"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/4AAC79AD630ED1BC2671AB7095D8845E07EA97E1.jpg" data-title="Image 4"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/A3D2204938F02E7BD0513EF2C076B2DAD3138C14.jpg" data-title="Image 5"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/B82B4824652A95C03FD0ADE96F2451C1907D9862.jpg" data-title="Image 6"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/FA29C94A9CD0E0A49911A108523758E8C3338836.jpg" data-title="Image 7"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/C3203F4049336216AB6E8C3764BFD81855BC461A.jpg" data-title="Image 8"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/B37911CD52482DB22B0CCB517268209709589FC8.jpg" data-title="Image 9"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/42C26E45A59C352B5F73C148914DB19C0D8CD7DA.jpg" data-title="Image 10"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/B83024537B662F16929E9F4D62D1D03BE60F9CD7.jpg" data-title="Image 11"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/163CE8049AD40D588C67EF34FC43B6EAB2CF0E6B.jpg" data-title="Image 12"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/78BC38D62D8D69C4B138789179C7980A92FDB0F0.jpg" data-title="Image 13"></div>
-            <div data-toggle="lightbox" data-gallery="image-gallery" data-remote="upload/D347615DB901D8B72F21C724DEACCDB36854AE4A.jpg" data-title="Image 14"></div>
+
+            <?php
+            print $printing_pictures;
+            ?>
+
         </div>
 
     </div>

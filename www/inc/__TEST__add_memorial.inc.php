@@ -50,10 +50,10 @@ if (isset($_POST["name"]) & isset($_POST["street"]) & isset($_POST["zip"]) & iss
 
 	// Comparing Keywords
 	$sql_linkMemKey = "";
-	for ($counter = 0, $counter < count($keywords), $counter++) {
+	for ($counter = 0; $counter < count($keywords); $counter++) {
 		$tmp_word1 = $keywords[$counter];
 		$tmp_found = false;
-		for ($counter2 = 0, $counter2 < count($alreadyKw), $counter2++) {
+		for ($counter2 = 0; $counter2 < count($alreadyKw); $counter2++) {
 			$tmp_word2 = $alreadyKw[$counter2['word']];
 			if ($tmp_word1 == $tmp_word2) {
 				// If Words are similar...
