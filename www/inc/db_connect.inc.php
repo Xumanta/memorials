@@ -8,6 +8,6 @@ if(!$db_connection){
         die('Database connection failed: ' . mysqli_connect_errno());
     }
 
-    die('Internal server error.');
+    die('CGI/Server error.');
 }
 ?>

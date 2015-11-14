@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <footer class="memorials-footer">
+        <p>Diese Website wurde realisiert mit PHP, MySQL & Bootstrap</p>
+        <p>
+        <p><a href="#">Zum Anfang der Seite</a></p>
+    </footer>
 
-</body>
+    <!-- Bootstrap and JQuery JavaScript
+    ======================================================================================-->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/ekko-lightbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });</script>
+    </body>
 </html>

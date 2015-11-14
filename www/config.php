@@ -1,8 +1,5 @@
 <?php
 class Config{
-    const SITE_HOST = 'http://localhost/';
-    const SITE_PATH = 'memorials/';
-
     const DB_HOST = 'localhost';
     const DB_PORT = '3306';
     const DB_DATABASE = 'db_memorials';
@@ -21,5 +18,7 @@ if(Config::DEBUG_ENABLED){
 } else {
     error_reporting(0);
 }
+
+set_include_path('inc/');
 
 ?>

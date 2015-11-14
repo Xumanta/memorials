@@ -110,6 +110,7 @@ if (isset($_REQUEST["searchword"])) {
     $sql_AllMemorials = "SELECT * FROM `memorials`;";
     $sql_GetAllMem = mysqli_query($db_connection, $sql_AllMemorials);
     $counter = 0;
+    $printing_memorials = '';
     while ($fetchMem = mysqli_fetch_array($sql_GetAllMem)) {
 
         $sql_KeyForMem = "SELECT word FROM memorials INNER JOIN memorialkeyword INNER JOIN keywords ON memorials.id = memorialkeyword.memorialid AND memorialkeyword.wordid = keywords.id WHERE memorials.id = ".$fetchMem["id"].";";
@@ -128,9 +129,13 @@ if (isset($_REQUEST["searchword"])) {
         unset($temppicfetch); unset($picount);
 
         if (($counter % 2) == 0 ) {
+            $printing_memorials .= '
+            <div class="row memorial-row" id="memorial-'.$counter.'">';
+
+
+
             $sidebar[$counter] = $fetchMem['name'];
             $printing_memorials .= '
-            <div class="row memorial-row" id="memorial-'.$counter.'">
             <div class="col-xs-8 col-sm-6 memorial-col">
             <h2>'.$fetchMem["name"].'</h2>
             <p>'.$fetchMem["description"].'</p>
@@ -145,22 +150,24 @@ if (isset($_REQUEST["searchword"])) {
             ';
             while ($fetchKey = mysqli_fetch_array($sql_GetKeysMem)) {
                 $printing_memorials .= '
-                <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>';
+                <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>
+                ';
             }
+
+            $printing_memorials .= '
+            </div>';
             while ($fetchPic = mysqli_fetch_array($sql_GetPicsMem)) {
                 $printing_memorials .= '
 
-                <div class="col-xs-8 col-sm-6">
+                <div class="col-xs-8 col-sm-6 memorials-image-col">
                 <a data-toggle="lightbox" href="upload/'.$fetchPic["picsum"].'.jpg" data-gallery="image-gallery" data-title="'.$fetchMem["name"].'" >
                 <img class="img-circle memorials-image" src="upload/thumbs/thumb-'.$fetchPic["picsum"].'.jpg" alt="...">
                 </a>
                 </div>
                 ';
             }
-            $printing_memorials .= '
-            </div>
-            </div>
-            ';
+            $printing_memorials .= '</div>';
+
         } else {
             $printing_memorials .= '
             <div class="row memorial-row" id="memorial-'.$counter.'">';
@@ -208,15 +215,18 @@ if (isset($_REQUEST["searchword"])) {
 // For Printing all Keywords
 $sql_AllKeywords = "SELECT * FROM keywords;";
 $sql_GetKeys = mysqli_query($db_connection, $sql_AllKeywords);
+$printing_keywords = '';
 while ($fetchAKeys = mysqli_fetch_array($sql_GetKeys)) {
     $printing_keywords .= '<a href="'.basename(__FILE__).'?searchword='.$fetchAKeys["word"].'"><span class="label label-primary label-sidebar">'.$fetchAKeys["word"].'</span></a> ';
 }
 
+$printing_lister = '';
 // For Printing the shown Sidebar data
 for ($i = 0; $i < count($sidebar); $i++) {
     $printing_lister .= "<li class=\"memorials-sidebar-item\"><a href=\"#memorial-".$i."\">".$sidebar[$i]."</a></li> ";
 }
 
+$printing_pictures = '';
 // All Images from Shown Memorials
 for ($ii = 0; $ii < count($pictures); $ii++) {
     $printing_pictures .= "<div data-toggle=\"lightbox\" data-gallery=\"image-gallery\" data-remote=\"upload/".$pictures[$ii].".jpg\" data-title=\"Image ".$ii."\"></div>";

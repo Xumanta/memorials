@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="row memorial-row" id="memorial-{{VAR:MEMORIAL_ID}}">
 
-</body>
-</html>
+    <div class="col-xs-8 col-sm-6 memorial-col">
+        <h2>{{VAR:MEMORIAL_TITLE}}</h2>
+        <p>{{VAR:MEMORIAL_DESCRIPTION}}</p>
+        <h3>Anschrift</h3>
+        <address>
+            {{VAR:MEMORIAL_STREET}}<br>
+            {{VAR:MEMORIAL_ZIP}}<br>
+            {{VAR:MEMORIAL_CITY}}
+        </address>
+        <h3>Stichw&ouml;rter</h3>
+
+        {{VAR:MEMORIAL_KEYWORDS}}
+
+    </div>
+
+    <div class="col-xs-8 col-sm-6">
+        <a data-toggle="lightbox" href="upload/{{VAR:MEMORIAL_PIC_SUM}}.jpg" data-gallery="image-gallery" data-title="{{VAR:MEMORIAL_PIC_TITLE}}" >
+            <img class="img-circle memorials-image" src="upload/thumbs/thumb-{{VAR:MEMORIAL_PIC_SUM}}.jpg" alt="...">
+        </a>
+    </div>
+
+</div>

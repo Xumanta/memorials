@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startseite</title>
+    <title>{{VAR:TITLE}}</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/ekko-lightbox.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/oswald.css" rel="stylesheet">
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -18,3 +17,25 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
+<body>
+
+    <div class="memorials-masthead">
+        <div class="container">
+            <nav class="memorials-nav">
+
+                {{VAR:NAV_ITEMS}}
+
+                <form class="navbar-form navbar-right" method="get" action="{{VAR:INDEX_FILE}}">
+
+                    <div class="input-group ">
+                        <input name="search" type="text" class="form-control" placeholder="Suchen nach...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit" value="">Los!</button>
+                          </span>
+                    </div>
+
+                </form>
+
+            </nav>
+        </div>
+    </div>
