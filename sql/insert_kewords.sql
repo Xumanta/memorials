@@ -29,7 +29,7 @@ INSERT INTO `keywords` (`word`) VALUES
   ('Markt'),
   ('Gedenktafel'),
   ('KZ'),
-  ('Außenlager'),
+  ('Au&szlig;enlager'),
   ('Sachsenhausen'),
   ('B&uuml;cherverbrennung'),
   ('1933'),

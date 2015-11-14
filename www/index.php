@@ -47,6 +47,11 @@ if (isset($_REQUEST["searchword"])) {
                 <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>
                 ';
             }
+
+            $printing_memorials .= '
+            </div>
+            ';
+
             while ($fetchPic = mysqli_fetch_array($sql_GetPicsMem)) {
                 $printing_memorials .= '
 
@@ -58,7 +63,6 @@ if (isset($_REQUEST["searchword"])) {
                 ';
             }
             $printing_memorials .= '
-            </div>
             </div>
             ';
         } else {
@@ -147,6 +151,10 @@ if (isset($_REQUEST["searchword"])) {
                 $printing_memorials .= '
                 <a href="#"><span class="label label-primary">'.$fetchKey["word"].'</span></a>';
             }
+
+            $printing_memorials .= '
+            </div>';
+
             while ($fetchPic = mysqli_fetch_array($sql_GetPicsMem)) {
                 $printing_memorials .= '
 
@@ -158,7 +166,6 @@ if (isset($_REQUEST["searchword"])) {
                 ';
             }
             $printing_memorials .= '
-            </div>
             </div>
             ';
         } else {
@@ -225,7 +232,7 @@ for ($ii = 0; $ii < count($pictures); $ii++) {
 ?>
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -237,96 +244,96 @@ for ($ii = 0; $ii < count($pictures); $ii++) {
     <link href="css/oswald.css" rel="stylesheet">
 
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="memorials-masthead">
-        <div class="container">
-            <nav class="memorials-nav">
-                <a class="memorials-nav-item active" href="<?= basename(__FILE__); ?>">Home</a>
-                <a class="memorials-nav-item" href="#">&Uuml;ber</a>
-                <a class="memorials-nav-item" href="#">Anmelden</a>
+<div class="memorials-masthead">
+    <div class="container">
+        <nav class="memorials-nav">
+            <a class="memorials-nav-item active" href="<?= basename(__FILE__); ?>">Home</a>
+            <a class="memorials-nav-item" href="#">&Uuml;ber</a>
+            <a class="memorials-nav-item" href="#">Anmelden</a>
 
-                <form class="navbar-form navbar-right" method="post" action="<?= basename(__FILE__); ?>">
+            <form class="navbar-form navbar-right" method="post" action="<?= basename(__FILE__); ?>">
 
-                    <div class="input-group ">
-                        <input type="text" class="form-control" id="searchword" placeholder="Suchen nach...">
+                <div class="input-group ">
+                    <input type="text" class="form-control" id="searchword" placeholder="Suchen nach...">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">Los!</button>
                       </span>
-                    </div>
+                </div>
 
-                </form>
+            </form>
 
-            </nav>
-        </div>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="memorials-header">
+        <h1 class="memorials-title">Denkmal ein Denkmal</h1>
+        <p class="memorials-description">Denkmale im Kreis D&uuml;sseldorf</p>
     </div>
 
-    <div class="container">
-
-        <div class="memorials-header">
-            <h1 class="memorials-title">Denkmal ein Denkmal</h1>
-            <p class="memorials-description">Denkmale im Kreis D&uuml;sseldorf</p>
-        </div>
-
-        <div class="row">
-            <!-- Content Begin -->
-            <div class="col-md-8 memorials-main">
-
-                <?php
-                print $printing_memorials;
-                ?>
-
-            </div>
-            <!-- Content End -->
-
-            <!-- Sidebar Begin -->
-            <div class="col-md-3 col-md-offset-1 memorials-sidebar">
-                <h2>&Uuml;bersicht</h2>
-                <ol class="list-unstyled">
-                    <?php
-                    print $printing_lister;
-                    ?>
-                </ol>
-                <h2>Alle Stichworte</h2>
-                <div>
-                    <?php
-                    print $printing_keywords;
-                    ?>
-                </div>
-            </div>
-            <!-- Sidebar End -->
-        </div>
-
-        <div id="memorial-images">
+    <div class="row">
+        <!-- Content Begin -->
+        <div class="col-md-8 memorials-main">
 
             <?php
-            print $printing_pictures;
+            print $printing_memorials;
             ?>
 
         </div>
+        <!-- Content End -->
+
+        <!-- Sidebar Begin -->
+        <div class="col-md-3 col-md-offset-1 memorials-sidebar">
+            <h2>&Uuml;bersicht</h2>
+            <ol class="list-unstyled">
+                <?php
+                print $printing_lister;
+                ?>
+            </ol>
+            <h2>Alle Stichworte</h2>
+            <div>
+                <?php
+                print $printing_keywords;
+                ?>
+            </div>
+        </div>
+        <!-- Sidebar End -->
+    </div>
+
+    <div id="memorial-images">
+
+        <?php
+        print $printing_pictures;
+        ?>
 
     </div>
 
-    <footer class="memorials-footer">
-        <p>Diese Website wurde realisiert mit PHP, MySQL & Bootstrap</p>
-        <p>
-        <p><a href="#">Zum Anfang der Seite</a></p>
-    </footer>
+</div>
 
-    <!-- Bootstrap and JQuery JavaScript
+<footer class="memorials-footer">
+    <p>Diese Website wurde realisiert mit PHP, MySQL & Bootstrap</p>
+    <p>
+    <p><a href="#">Zum Anfang der Seite</a></p>
+</footer>
+
+<!-- Bootstrap and JQuery JavaScript
 ======================================================================================-->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/ekko-lightbox.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-});</script>
-  </body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/ekko-lightbox.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });</script>
+</body>
 </html>
