@@ -9,13 +9,13 @@ body {
 }
 
 .container {
-    width: 960px;
+    width: 1200px;
 }
 
 .memorials-masthead {
     background-color: #4082ed;
-    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.15);
+    /*position: fixed;*/
     top: 0;
     left: 0;
     right: 0;
@@ -24,11 +24,12 @@ body {
 
 .memorials-header{
     border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .memorials-nav {
     height: 50px;
+    overflow: hidden;
 }
 
 .memorials-nav-item {
@@ -41,8 +42,20 @@ body {
     margin-top: 5px;
 }
 
-.memorials-nav-item .active {
+.memorials-nav-item.active {
     color: #fff;
+}
+
+.memorials-nav-item.active:after {
+    position: relative;
+    content:'';
+    width: 0;
+    height: 0;
+    top: 8px;
+    left: -50%;
+    border-left: 7px outset transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
 }
 
 .memorials-nav-item:hover,
@@ -54,7 +67,6 @@ body {
 .memorials-title {
     text-transform: uppercase;
     font-size: 30px;
-    padding-top: 60px;
     font-weight: normal;
 }
 
@@ -94,11 +106,9 @@ body {
 }
 
 .memorials-image {
-    margin: 15px 0;
-    max-width:100%;
-    max-height:100%;
-
-    border: 3px solid #4082ed;
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid #4082ed;
 }
 
 .memorials-image:hover,
@@ -108,15 +118,22 @@ body {
 
 .memorial-row {
     border-bottom: 1px dashed #e5e5e5;
-    margin-bottom: 16px;
 }
 
 .memorial-row-last {
     border-bottom: none;
 }
 
+.memorials-image-col {
+    padding: 30px;
+    height: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+ }
+
 .memorial-col {
-    margin-bottom: 20px;
+    padding: 30px;
+    height: 100%;
 }
 
 .label-primary {

@@ -1,0 +1,35 @@
+    <div class="container">
+
+        <div class="memorials-header">
+            <h1 class="memorials-title">Denkmal ein Denkmal</h1>
+            <p class="memorials-description">Denkmale im Kreis D&uuml;sseldorf</p>
+        </div>
+
+        <div class="row">
+            <!-- Content Begin -->
+            <div class="col-md-8 memorials-main">
+
+            {{VAR:MEMORIALS}}
+
+            </div>
+            <!-- Content End -->
+
+            <!-- Sidebar Begin -->
+            <div class="col-md-3 col-md-offset-1 memorials-sidebar">
+                <h2>&Uuml;bersicht</h2>
+                <ol class="list-unstyled">
+                    {{VAR:OVERVIEW_ITEMS}}
+                </ol>
+                <h2>Alle Stichworte</h2>
+                <div>
+                    {{VAR:KEYWORDS_SIDEBAR}}
+                </div>
+            </div>
+            <!-- Sidebar End -->
+
+            <div id="memorial-images">
+               {{VAR:MEMORIAL_IMAGES}}
+            </div>
+
+        </div>
+    </div>
