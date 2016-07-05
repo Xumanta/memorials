@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config.php';
-require_once 'db_connect.inc.php';
+require_once 'inc/db_connect.inc.php';
 
 if (isset($_REQUEST["searchword"])) {
     // Searching
@@ -54,11 +54,9 @@ if (isset($_REQUEST["searchword"])) {
             while ($fetchPic = mysqli_fetch_array($sql_GetPicsMem)) {
                 $printing_memorials .= '
 
-                <!---<div class="col-xs-8 col-sm-6">--->
                 <a data-toggle="lightbox" href="upload/'.$fetchPic["picsum"].'.jpg" data-gallery="image-gallery" data-title="'.$fetchMem["name"].'" >
                 <img class="img-circle memorials-image" src="upload/thumbs/thumb-'.$fetchPic["picsum"].'.jpg" alt="...">
                 </a>
-                <!---</div>--->
                 ';
             }
             $printing_memorials .= '
